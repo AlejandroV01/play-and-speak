@@ -3,8 +3,8 @@
 import { PrimaryButton } from '@/app/_components/Buttons/Buttons'
 import * as Form from '@radix-ui/react-form'
 import React, { useState } from 'react'
-import { FaCheck } from 'react-icons/fa'
-import { IoLanguage } from 'react-icons/io5'
+import { FaCheck, FaLongArrowAltLeft } from 'react-icons/fa'
+import { IoGameControllerOutline, IoLanguage } from 'react-icons/io5'
 import { LuScrollText } from 'react-icons/lu'
 import languageData, { ILanguage } from '../../../../util/languages'
 const Page = () => {
@@ -15,14 +15,22 @@ const Page = () => {
     setStep(step + 1)
     console.log('Submit FormA')
   }
-  const handleSubmitB = (e: React.FormEvent) => {
-    e.preventDefault()
+  const handleSubmitB = () => {
     setStep(step + 1)
     console.log('Submit FormB')
   }
+  const handleSubmitC = () => {
+    setStep(step + 1)
+    console.log('Submit FormB')
+  }
+  const stepBack = () => {
+    setStep(step - 1)
+    console.log('Step Back')
+  }
   const renderForm = () => {
     if (step === 1) return <FormA handleSubmit={handleSubmitA} />
-    if (step === 2) return <FormB handleSubmit={handleSubmitB} />
+    if (step === 2) return <FormB handleSubmit={handleSubmitB} stepBack={stepBack} />
+    if (step === 3) return <FormC handleSubmit={handleSubmitC} stepBack={stepBack} />
   }
   return (
     <div className='ml-auto mr-auto w-full relative flex flex-col lg:flex-row justify-center h-full'>
@@ -32,7 +40,7 @@ const Page = () => {
         <StepDiv step={2} title='Looking For?' text='What language quests are you seeking?' cur={step} />
         <StepDiv step={3} title='My Languages' text='Which languages can you currently speak?' cur={step} />
       </div>
-      <div className='flex-[2] flex justify-center'>{renderForm()}</div>
+      <div className='flex-[3] flex justify-center'>{renderForm()}</div>
     </div>
   )
 }
@@ -51,8 +59,8 @@ const StepDiv = ({ step, title, text, cur }: { step: number; title: string; text
         {isFinished ? <FaCheck /> : <p>{step}</p>}
       </div>
       <div className='flex flex-col'>
-        <h1 className={`text-white font-bold text-lg ${isFinished && 'text-green-600'}`}>{title}</h1>
-        <p className={`text-neutral-300 text-sm ${isFinished && 'text-green-600'}`}>{text}</p>
+        <h1 className={`text-white font-bold text-lg ${isFinished && '!text-green-600'}`}>{title}</h1>
+        <p className={`text-neutral-300 text-sm ${isFinished && '!text-green-600'}`}>{text}</p>
       </div>
     </div>
   )
@@ -188,7 +196,7 @@ const FormA = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void })
   )
 }
 
-const FormB = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void }) => {
+const FormB = ({ handleSubmit, stepBack }: { handleSubmit: () => void; stepBack: () => void }) => {
   const [languages, setLanguages] = useState<string[]>([])
   const toggleLanguage = (language: string) => {
     if (languages.includes(language)) {
@@ -199,7 +207,7 @@ const FormB = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void })
     console.log(languages)
   }
   return (
-    <div className='flex flex-col items-center gap-10 pt-10 w-full px-6  '>
+    <div className='flex flex-col items-center gap-10 pt-10 w-full px-6 pb-10'>
       <div className='text-white w-[50px] h-[50px] flex items-center justify-center'>
         <IoLanguage size={50} />
       </div>
@@ -208,6 +216,13 @@ const FormB = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void })
         <p className='text-neutral-100 text-sm text-center'>
           Please select all the languages you are looking to learn. You can always add more later!
         </p>
+        <div className='flex mt-10 gap-5'>
+          <div className='flex items-center gap-1 text-white hover:bg-neutral-700 cursor-pointer rounded-lg px-3'>
+            <FaLongArrowAltLeft />
+            <PrimaryButton text='Back' color='bg-transparent' className='font-normal w-fit' textBlack={false} onClick={stepBack} />
+          </div>
+          <PrimaryButton text='Continue' color='bg-blue-600' className='hover:bg-blue-700 ' textBlack={false} onClick={handleSubmit} />
+        </div>
         <div className='flex flex-wrap justify-center gap-3 mt-10'>
           {languageData.languages.map((language: ILanguage) => (
             // eslint-disable-next-line react/jsx-key
@@ -220,6 +235,62 @@ const FormB = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void })
               toggleLanguage={toggleLanguage}
             />
           ))}
+        </div>
+        <div className='flex mt-10 gap-5'>
+          <div className='flex items-center gap-1 text-white hover:bg-neutral-700 cursor-pointer rounded-lg px-3'>
+            <FaLongArrowAltLeft />
+            <PrimaryButton text='Back' color='bg-transparent' className='font-normal w-fit' textBlack={false} onClick={stepBack} />
+          </div>
+          <PrimaryButton text='Continue' color='bg-blue-600' className='hover:bg-blue-700 ' textBlack={false} onClick={handleSubmit} />
+        </div>
+      </div>
+    </div>
+  )
+}
+const FormC = ({ handleSubmit, stepBack }: { handleSubmit: () => void; stepBack: () => void }) => {
+  const [languages, setLanguages] = useState<string[]>([])
+  const toggleLanguage = (language: string) => {
+    if (languages.includes(language)) {
+      setLanguages(languages.filter(l => l !== language))
+    } else {
+      setLanguages([...languages, language])
+    }
+    console.log(languages)
+  }
+  return (
+    <div className='flex flex-col items-center gap-10 pt-10 w-full px-6 pb-10'>
+      <div className='text-white w-[50px] h-[50px] flex items-center justify-center'>
+        <IoGameControllerOutline size={50} />
+      </div>
+      <div className='flex flex-col items-center'>
+        <h1 className='text-white font-bold text-2xl'>My Languages</h1>
+        <p className='text-neutral-100 text-sm text-center'>Please select all the languages you can speak. You can always add more later!</p>
+        <div className='flex mt-10 gap-5'>
+          <div className='flex items-center gap-1 text-white hover:bg-neutral-700 cursor-pointer rounded-lg px-3'>
+            <FaLongArrowAltLeft />
+            <PrimaryButton text='Back' color='bg-transparent' className='font-normal w-fit' textBlack={false} onClick={stepBack} />
+          </div>
+          <PrimaryButton text='Submit' color='bg-blue-600' className='hover:bg-blue-700 ' textBlack={false} onClick={handleSubmit} />
+        </div>
+        <div className='flex flex-wrap justify-center gap-3 mt-10'>
+          {languageData.languages.map((language: ILanguage) => (
+            // eslint-disable-next-line react/jsx-key
+            <CountryBlock
+              highlighted={languages.includes(language.language)}
+              country={language.country}
+              countryCode={language.countryCode}
+              img={language.img}
+              language={language.language}
+              toggleLanguage={toggleLanguage}
+            />
+          ))}
+        </div>
+        <div className='flex mt-10 gap-5'>
+          <div className='flex items-center gap-1 text-white hover:bg-neutral-700 cursor-pointer rounded-lg px-3'>
+            <FaLongArrowAltLeft />
+            <PrimaryButton text='Back' color='bg-transparent' className='font-normal w-fit' textBlack={false} onClick={stepBack} />
+          </div>
+          <PrimaryButton text='Submit' color='bg-blue-600' className='hover:bg-blue-700 ' textBlack={false} onClick={handleSubmit} />
         </div>
       </div>
     </div>
@@ -235,7 +306,9 @@ const CountryBlock = ({ country, countryCode, img, language, toggleLanguage, hig
       key={countryCode}
       className={`bg-neutral-800 ${
         highlighted && 'bg-green-600 bg-opacity-30'
-      } rounded-lg w-[150px] md:w-[200px] text-center border-2 border-b-4 border-neutral-600 flex flex-col items-center py-1 hover:bg-neutral-700 cursor-pointer`}
+      } rounded-lg w-[150px] md:w-[200px] text-center border-2 border-b-4 border-neutral-600 flex flex-col items-center py-1 hover:bg-neutral-700 ${
+        highlighted && 'hover:bg-green-600 hover:bg-opacity-30'
+      } cursor-pointer`}
       onClick={() => toggleLanguage(language)}
     >
       <img src={img} alt='' className='w-[100px]' />

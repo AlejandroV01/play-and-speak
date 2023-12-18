@@ -10,22 +10,34 @@ export interface ILanguagesData {
 const languagesData: ILanguagesData = {
   languages: [
     {
-      language: 'Mandarin Chinese',
-      country: 'China',
-      countryCode: 'CN',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg',
-    },
-    {
       language: 'Spanish',
       country: 'Spain',
       countryCode: 'ES',
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ES.svg',
     },
     {
-      language: 'English',
-      country: 'United Kingdom',
-      countryCode: 'GB',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg',
+      language: 'French',
+      country: 'France',
+      countryCode: 'FR',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/FR.svg',
+    },
+    {
+      language: 'Japanese',
+      country: 'Japan',
+      countryCode: 'JP',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/JP.svg',
+    },
+    {
+      language: 'Korean',
+      country: 'South Korea',
+      countryCode: 'KR',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/KR.svg',
+    },
+    {
+      language: 'German',
+      country: 'Germany',
+      countryCode: 'DE',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/DE.svg',
     },
     {
       language: 'Hindi',
@@ -34,16 +46,36 @@ const languagesData: ILanguagesData = {
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IN.svg',
     },
     {
+      language: 'Italian',
+      country: 'Italy',
+      countryCode: 'IT',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IT.svg',
+    },
+    {
+      language: 'Mandarin Chinese',
+      country: 'China',
+      countryCode: 'CN',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/CN.svg',
+    },
+
+    {
+      language: 'English',
+      country: 'United Kingdom',
+      countryCode: 'GB',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/US.svg',
+    },
+
+    {
       language: 'Arabic',
       country: 'Saudi Arabia',
       countryCode: 'SA',
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/SA.svg',
     },
     {
-      language: 'Bengali',
-      country: 'Bangladesh',
-      countryCode: 'BD',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BD.svg',
+      language: 'Russian',
+      country: 'Russia',
+      countryCode: 'RU',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/RU.svg',
     },
     {
       language: 'Portuguese',
@@ -52,10 +84,10 @@ const languagesData: ILanguagesData = {
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/PT.svg',
     },
     {
-      language: 'Russian',
-      country: 'Russia',
-      countryCode: 'RU',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/RU.svg',
+      language: 'Bengali',
+      country: 'Bangladesh',
+      countryCode: 'BD',
+      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/BD.svg',
     },
     {
       language: 'Urdu',
@@ -69,24 +101,7 @@ const languagesData: ILanguagesData = {
       countryCode: 'ID',
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ID.svg',
     },
-    {
-      language: 'French',
-      country: 'France',
-      countryCode: 'FR',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/FR.svg',
-    },
-    {
-      language: 'German',
-      country: 'Germany',
-      countryCode: 'DE',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/DE.svg',
-    },
-    {
-      language: 'Japanese',
-      country: 'Japan',
-      countryCode: 'JP',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/JP.svg',
-    },
+
     {
       language: 'Swahili',
       country: 'Tanzania',
@@ -129,12 +144,7 @@ const languagesData: ILanguagesData = {
       countryCode: 'NG',
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/NG.svg',
     },
-    {
-      language: 'Italian',
-      country: 'Italy',
-      countryCode: 'IT',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/IT.svg',
-    },
+
     {
       language: 'Thai',
       country: 'Thailand',
@@ -153,12 +163,7 @@ const languagesData: ILanguagesData = {
       countryCode: 'ID',
       img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/ID.svg',
     },
-    {
-      language: 'Korean',
-      country: 'South Korea',
-      countryCode: 'KR',
-      img: 'https://cdn.jsdelivr.net/npm/country-flag-emoji-json@2.0.0/dist/images/KR.svg',
-    },
+
     {
       language: 'Polish',
       country: 'Poland',

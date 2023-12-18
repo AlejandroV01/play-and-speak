@@ -15,7 +15,7 @@ export const PrimaryButton = ({ text, color = 'white', textBlack = true, onClick
     return (
       <button
         onClick={onClick}
-        className={`${color} ${textBlack ? 'text-black' : 'text-white'} font-bold py-2 w-[130px] rounded-lg hover:${hoverColor} ${className}`}
+        className={`${color} ${textBlack ? 'text-black' : 'text-white'} font-bold py-2 w-[130px] rounded-lg ${hoverColor} ${className}`}
       >
         {text}
       </button>
@@ -24,7 +24,7 @@ export const PrimaryButton = ({ text, color = 'white', textBlack = true, onClick
     <Link href={to}>
       <button
         onClick={onClick}
-        className={`${color} ${textBlack ? 'text-black' : 'text-white'} font-bold py-2 w-[130px] rounded-lg hover:${hoverColor} ${className}`}
+        className={`${color} ${textBlack ? 'text-black' : 'text-white'} font-bold py-2 w-[130px] rounded-lg ${hoverColor} ${className}`}
       >
         {text}
       </button>
