@@ -2,12 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 html {
-  background-color: rgb(7, 7, 7);
+  background-color: #171717;
 }
 
 .text-gradient {
   background-clip: text;
   color: transparent;
   background-image: linear-gradient(to right, #ff3bff, #ecbfbf, #5c24ff, #d94fd5);
+}
+
+.h-screen-nav {
+  height: calc(100vh - 60px);
 }
