@@ -8,7 +8,7 @@ import { IoGameControllerOutline, IoLanguage } from 'react-icons/io5'
 import { LuScrollText } from 'react-icons/lu'
 import languageData, { ILanguage } from '../../../../util/languages'
 const Page = () => {
-  const [step, setStep] = useState(2)
+  const [step, setStep] = useState(1)
 
   const handleSubmitA = (e: React.FormEvent) => {
     e.preventDefault()
@@ -189,7 +189,7 @@ const FormA = ({ handleSubmit }: { handleSubmit: (e: React.FormEvent) => void })
           </Form.Control>
         </Form.Field>
         <Form.Submit asChild>
-          <PrimaryButton text='Continue' color='bg-blue-500' hoverColor='bg-blue-600' textBlack={false} className='w-full mt-2' />
+          <PrimaryButton text='Continue' color='bg-blue-500' textBlack={false} className='w-full mt-2 hover:bg-blue-600' />
         </Form.Submit>
       </Form.Root>
     </div>

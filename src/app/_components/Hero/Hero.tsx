@@ -9,8 +9,8 @@ const Hero = () => {
           Unlock fluency, loot languages, and conquer gaming realms with Loot Language. Where gaming meets global communication.
         </p>
         <div className='flex gap-5 z-10'>
-          <PrimaryButton text='Get Started' color='bg-blue-500' textBlack={false} hoverColor='bg-blue-600' to='/register' />
-          <PrimaryButton text='Login' color='bg-white' textBlack hoverColor='bg-neutral-400' to='/login' />
+          <PrimaryButton text='Get Started' color='bg-blue-500' textBlack={false} hoverColor='hover:bg-blue-600' to='/register' />
+          <PrimaryButton text='Login' color='bg-white' textBlack hoverColor='hover:bg-neutral-400' to='/login' />
         </div>
       </div>
     </div>
